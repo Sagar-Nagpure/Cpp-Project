@@ -5,8 +5,8 @@ using namespace std;
 
 class ATM {
 private:
-	string name;
-	long long acc_number;
+    string name;
+    long long acc_number;
     double balance;
     string type;
     int passwoard;
@@ -19,8 +19,7 @@ public:
     	cout << "|| Please Enter Details of Account Holder ||" << endl << endl;
     	cout << "Enter Account Holder's Name :- "; getline(cin, name);
     	cout << "Enter your Account Number : "; cin >> acc_number;
-    	cout << "Enter your Account type : "; cin.ignore();
-		getline(cin, type);    	
+    	cout << "Enter your Account type : "; cin.ignore(); getline(cin, type);    	
     	cout << "Enter your ultimate PIN : "; cin >> passwoard;
     	balance = 0.0;
     	
@@ -45,16 +44,17 @@ public:
         cout <<"Enter PIN : ";
         cin >> pin;
         if(pin == passwoard){
-        if (amount > 0) {
-            balance += amount;
-            cout << "Deposit successful. Your new balance is: $" << balance << endl;
-        } else {
-            cout << "Invalid amount. Please enter a positive amount to deposit." << endl;
-        }
-		}
-		else{
-			cout<< "Please enter correct PIN !!" <<endl;
-		}
+           if (amount > 0) {
+               balance += amount;
+               cout << "Deposit successful. Your new balance is: $" << balance << endl;
+           } 
+	   else {
+               cout << "Invalid amount. Please enter a positive amount to deposit." << endl;
+           }
+	}
+	else{
+	    cout<< "Please enter correct PIN !!" <<endl;
+	}
     }
 
     void withdraw() {
@@ -67,15 +67,17 @@ public:
         if (amount > 0 && amount <= balance) {
             balance -= amount;
             cout << "Withdrawal successful. Your new balance is: $" << balance << endl;
-        } else if (amount <= 0) {
+        } 
+	else if (amount <= 0) {
             cout << "Invalid amount. Please enter a positive amount to withdraw." << endl;
-        } else {
+        } 
+	else {
             cout << "Insufficient funds. Your balance is: $" << balance << endl;
         }
         }
-        else{
+        else {
         	cout<< "Please enter correct PIN !!" << endl;
-		}
+	}
     }
     
     void credentials()
@@ -83,14 +85,14 @@ public:
     	cout <<"Enter PIN : ";
         cin >> pin;
         if(pin == passwoard){
-    	cout << "Account Holder Name : " << name << endl;
-    	cout << "Account Number : " << acc_number << endl;
-    	cout << "Account Type : " << type << endl;
-    	cout << "Current Balance : $" << balance << endl;
-		}
-		else{
-			cout<< "Please enter correct PIN !!" << endl;
-		}
+    	   cout << "Account Holder Name : " << name << endl;
+    	   cout << "Account Number : " << acc_number << endl;
+    	   cout << "Account Type : " << type << endl;
+    	   cout << "Current Balance : $" << balance << endl;
+	}
+	else{
+	    cout<< "Please enter correct PIN !!" << endl;
+	}
 	}
 
     void menu() {
@@ -116,7 +118,7 @@ public:
                     withdraw();
                     break;
                 case 4:
-                	credentials();
+                    credentials();
                 	break;
                 case 5:
                     cout << "Thank you for using the ATM. Goodbye!" << endl;
